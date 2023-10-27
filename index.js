@@ -3,15 +3,15 @@ const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
     height: '300px',
     blocks: [{ padding: '10px', background: '#869cfa' }],
     prizes: [
-      { background: '#b8c5f2', fonts: [{ text: '谢谢惠顾' , top: '10%'}] ,range: 60},
+      { background: '#b8c5f2', fonts: [{ text: '谢谢惠顾' , top: '10%'}] ,range: 100},
       { background: '#e9e8fe', fonts: [{ text: '武士刀' , top: '10%'}],range: 5 },
       { background: '#b8c5f2', fonts: [{ text: '伸缩唐刀' , top: '10%'}],range: 5 },
       { background: '#e9e8fe', fonts: [{ text: '大螺旋剑', top: '10%' }] ,range: 5},
       { background: '#b8c5f2', fonts: [{ text: '小螺旋剑' , top: '10%'}],range: 5 },
     { background: '#b8c5f2', fonts: [{ text: '鬼武士模型', top: '10%' }] ,range: 1},
     { background: '#e9e8fe', fonts: [{ text: '数码宝贝', top: '10%' }] ,range: 1},
-    { background: '#b8c5f2', fonts: [{ text: '钥匙扣' , top: '10%'}] ,range: 60},
-    { background: '#e9e8fe', fonts: [{ text: '卡贴' , top: '10%'}] ,range: 60},
+    { background: '#b8c5f2', fonts: [{ text: '钥匙扣' , top: '10%'}] ,range: 10},
+    { background: '#e9e8fe', fonts: [{ text: '卡贴' , top: '10%'}] ,range: 1000},
     { background: '#b8c5f2', fonts: [{ text: '再来一次' , top: '10%'}] ,range: 30},
     ],
 
