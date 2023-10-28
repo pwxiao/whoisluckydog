@@ -10,8 +10,9 @@ const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
       { background: '#b8c5f2', fonts: [{ text: '小螺旋剑' , top: '10%'}],range: 5 },
     { background: '#b8c5f2', fonts: [{ text: '鬼武士模型', top: '10%' }] ,range: 1},
     { background: '#e9e8fe', fonts: [{ text: '数码宝贝', top: '10%' }] ,range: 1},
-    { background: '#e9e8fe', fonts: [{ text: '卡贴' , top: '10%'}] ,range: 200},
-    { background: '#b8c5f2', fonts: [{ text: '再来一次' , top: '10%'}] ,range:80},
+     { background: '#b8c5f2', fonts: [{ text: 'RM小车', top: '10%' }] ,range: 40},
+    { background: '#b8c5f2', fonts: [{ text: '再来一次' , top: '10%'}] ,range:150},
+    { background: '#e9e8fe', fonts: [{ text: '萝卜刀' , top: '10%'}] ,range: 40},
     ],
 
     buttons: [
