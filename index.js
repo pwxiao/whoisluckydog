@@ -3,7 +3,7 @@ const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
     height: '300px',
     blocks: [{ padding: '10px', background: '#869cfa' }],
     prizes: [
-      { background: '#b8c5f2', fonts: [{ text: '谢谢惠顾' , top: '10%'}] ,range: 350},
+      { background: '#b8c5f2', fonts: [{ text: '谢谢惠顾' , top: '10%'}] ,range: 300},
       { background: '#e9e8fe', fonts: [{ text: '武士刀' , top: '10%'}],range: 5 },
       { background: '#b8c5f2', fonts: [{ text: '伸缩唐刀' , top: '10%'}],range: 4 },
       { background: '#e9e8fe', fonts: [{ text: '大螺旋剑', top: '10%' }] ,range: 5},
