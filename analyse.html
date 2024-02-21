@@ -4,104 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <!-- Material Design 3 styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- ECharts styles -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+  <!-- MDUI styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/css/mdui.min.css" integrity="sha384-VjOyWUtWClnt3DpA5J4Ofb6B25eO3FksT47dHQ/+DMz/uDgh8o5c4oMqsLeh3Yos" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Dashboard</h1>
+  <div class="mdui-container">
+    <header class="mdui-appbar mdui-color-theme">
+    
     </header>
-    <section>
-      <div id="dailyActiveUsersChart" style="width: 600px; height: 400px;"></div>
-      <div id="dailyVisitsChart" style="width: 600px; height: 400px;"></div>
-      <div id="totalVisitsChart" style="width: 600px; height: 400px;"></div>
-    </section>
+    <div class="mdui-container-fluid">
+      <div class="mdui-row">
+        <div class="mdui-col-xs-12 mdui-col-sm-6">
+          <div class="mdui-card">
+            <div class="mdui-card-content" id="dailyActiveUsersChart" style="height: 300px;"></div>
+          </div>
+        </div>
+        <div class="mdui-col-xs-12 mdui-col-sm-6">
+          <div class="mdui-card">
+            <div class="mdui-card-content" id="dailyVisitsChart" style="height: 300px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-row">
+        <div class="mdui-col-xs-12">
+          <div class="mdui-card">
+            <div class="mdui-card-content" id="totalVisitsChart" style="height: 300px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- MDUI scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/js/mdui.min.js" integrity="sha384-jxNm6XccHP9Qbx4mHISj5x/xlpLj/4hOcZc+d+nHhBJm+G6qLGoNRv6bQ9Uu2Btz" crossorigin="anonymous"></script>
+  <!-- ECharts script -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
   <script>
-    // Fetch JSON data from the provided URL
-    fetch('http://47.96.80.84:5000/active_users?id=122')
-      .then(response => response.json())
-      .then(data => {
-        // Daily Active Users Chart
-        var dailyActiveUsersChart = echarts.init(document.getElementById('dailyActiveUsersChart'));
-        var dailyActiveUsersOption = {
-  tooltip: {
-    formatter: '{a} <br/>{b} : {c}%'
-  },
-  series: [
-    {
-      name: 'Pressure',
-      type: 'gauge',
-      detail: {
-        formatter: '{value}'
-      },
-      data: [
-        {
-          value: [data.daily_active_users],
-          name: '每日活跃用户'
-        }
-      ]
-    }
-  ]
-};
-        dailyActiveUsersChart.setOption(dailyActiveUsersOption);
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fetch JSON data from the provided URL
+      fetch('http://47.96.80.84:5000/active_users?id=122')
+        .then(response => response.json())
+        .then(data => {
+          // Daily Active Users Chart
+          var dailyActiveUsersChart = echarts.init(document.getElementById('dailyActiveUsersChart'));
+          var dailyActiveUsersOption = {
+            tooltip: {
+              formatter: '{a} <br/>{b} : {c}%'
+            },
+            series: [
+              {
+                name: 'Pressure',
+                type: 'gauge',
+                detail: {
+                  formatter: '{value}'
+                },
+                data: [
+                  {
+                    value: [data.daily_active_users],
+                    name: '每日活跃用户'
+                  }
+                ]
+              }
+            ]
+          };
+          dailyActiveUsersChart.setOption(dailyActiveUsersOption);
 
-        // Daily Visits Chart
-        var dailyVisitsChart = echarts.init(document.getElementById('dailyVisitsChart'));
-        var dailyVisitsOption = {
-  tooltip: {
-    formatter: '{a} <br/>{b} : {c}%'
-  },
-  series: [
-    {
-      name: 'Pressure',
-      type: 'gauge',
-      detail: {
-        formatter: '{value}'
-      },
-      data: [
-        {
-          value: [data.daily_requests],
-          name: '今日访问量'
-        }
-      ]
-    }
-  ]
-};
-        dailyVisitsChart.setOption(dailyVisitsOption);
+          // Daily Visits Chart
+          var dailyVisitsChart = echarts.init(document.getElementById('dailyVisitsChart'));
+          var dailyVisitsOption = {
+            tooltip: {
+              formatter: '{a} <br/>{b} : {c}%'
+            },
+            series: [
+              {
+                name: 'Pressure',
+                type: 'gauge',
+                detail: {
+                  formatter: '{value}'
+                },
+                data: [
+                  {
+                    value: [data.daily_requests],
+                    name: '今日访问量'
+                  }
+                ]
+              }
+            ]
+          };
+          dailyVisitsChart.setOption(dailyVisitsOption);
 
-        // Total Visits Chart
-        var totalVisitsChart = echarts.init(document.getElementById('totalVisitsChart'));
-        var totalVisitsOption = {
-  tooltip: {
-    formatter: '{a} <br/>{b} : {c}%'
-  },
-  series: [
-    {
-      name: 'Pressure',
-      type: 'gauge',
-      detail: {
-        formatter: '{value}'
-      },
-      data: [
-        {
-          value: [data.total_requests],
-          name: '总访问量'
-        }
-      ]
-    }
-  ]
-};
-        totalVisitsChart.setOption(totalVisitsOption);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
+          // Total Visits Chart
+          var totalVisitsChart = echarts.init(document.getElementById('totalVisitsChart'));
+          var totalVisitsOption = {
+            tooltip: {
+              formatter: '{a} <br/>{b} : {c}%'
+            },
+            series: [
+              {
+                name: 'Pressure',
+                type: 'gauge',
+                detail: {
+                  formatter: '{value}'
+                },
+                data: [
+                  {
+                    value: [data.total_requests],
+                    name: '总访问量'
+                  }
+                ]
+              }
+            ]
+          };
+          totalVisitsChart.setOption(totalVisitsOption);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    });
   </script>
 </body>
 </html>
