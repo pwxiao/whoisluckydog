@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <!-- MDUI styles -->
-    <link rel="stylesheet" href="mdui.css">
-    <script src="mdui.global.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
 </head>
 
 <body>
     <div class="mdui-container">
-        <mdui-button>概览</mdui-button>
+        <mdui-chip>概览</mdui-chip>
         <mdui-list>
             <mdui-list-item id="todayUser">今日活跃量</mdui-list-item>
             <mdui-list-item id="todayRequests">今日请求量</mdui-list-item>
             <mdui-list-item id="totalRequests">总请求量</mdui-list-item>
         </mdui-list>
 
-        <mdui-button>排行</mdui-button>
-        <div id="rankChart" style="width: 100%; height: 5000px;"></div>
+        <mdui-chip>排行</mdui-chip>
+        <div id="rankChart" style="width: 100%; height: 4000px;"></div>
 
     </div>
 
