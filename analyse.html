@@ -24,6 +24,7 @@
         <mdui-snackbar class="stop-snackbar">关闭成功</mdui-snackbar>
 
         <div class="mdui-container">
+          <mdui-button id="len">总人数</mdui-button>
           <mdui-list></mdui-list>
         </div>
 
@@ -86,6 +87,7 @@
           var cates = rankData.map(item => item[0]);
           var barData = rankData.map(item => item[1]);
           var listElement = document.querySelector('mdui-list');
+          document.getElementById('len').innerHTML = "总人数:" + cates.length
 
           // 遍历数组，为每个元素创建新的mdui-list-item，并添加到列表中
           cates.forEach(function (cate,index) {
